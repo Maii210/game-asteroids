@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +17,7 @@ body {
   height: 100vh;
 }
 
+/* ── Panel de instrucciones ── */
 #panel-instrucciones {
   position: fixed;
   bottom: 24px;
@@ -37,4 +37,78 @@ body {
 .tecla {
   color: hsl(45, 90%, 55%);
   margin: 0 8px;
+}
+
+#panel-puntuaciones {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: hsla(230, 20%, 8%, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(170, 40%, 20%);
+  border-radius: 10px;
+  padding: 16px 20px;
+  width: 220px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px;
+}
+
+#panel-puntuaciones h2 {
+  font-size: 13px;
+  color: hsl(170, 80%, 60%);
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#lista-puntuaciones {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+#lista-puntuaciones li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid hsla(230, 15%, 20%, 0.5);
+  color: hsl(210, 30%, 75%);
+}
+
+#lista-puntuaciones li:last-child {
+  border-bottom: none;
+}
+
+#lista-puntuaciones li span.pos {
+  color: hsl(45, 90%, 55%);
+  margin-right: 8px;
+}
+
+#lista-puntuaciones li span.pts {
+  color: hsl(170, 80%, 65%);
+  font-weight: bold;
+}
+
+#lista-puntuaciones .vacio {
+  color: hsl(230, 15%, 40%);
+  font-style: italic;
+  text-align: center;
+  padding: 8px 0;
+}
+
+#btn-borrar {
+  width: 100%;
+  background: hsla(0, 60%, 30%, 0.4);
+  border: 1px solid hsl(0, 60%, 40%);
+  border-radius: 5px;
+  color: hsl(0, 70%, 70%);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#btn-borrar:hover {
+  background: hsla(0, 60%, 40%, 0.5);
 }

@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asteroides - Juego Espacial</title>
-  <meta name="description" content="Juego clásico de asteroides con nave espacial, disparos y niveles progresivos" />
-  <link rel="stylesheet" href="/estilos.css" />
+  <title>Asteroides</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
   <canvas id="lienzo"></canvas>
+
   <div id="panel-instrucciones">
     <span class="tecla">← → / A D</span> Rotar
-    <span class="tecla">↑ / W</span> Avanzar
     <span class="tecla">ESPACIO</span> Disparar
   </div>
-  </body>
-  <script src="/juego.js"></script>
 
+  <div id="panel-puntuaciones">
+    <h2>Mejores partidas</h2>
+    <ol id="lista-puntuaciones"></ol>
+    <button id="btn-borrar">Borrar historial</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/pouchdb@9.0.0/dist/pouchdb.min.js"></script>
+  <script type="module" src="js/Controlador.js"></script>
+</body>
 </html>
