@@ -25,7 +25,7 @@ class Controlador {
 
   _nuevoJuego() {
     this.modelo          = new Modelo(this.vista.ancho, this.vista.alto);
-    this._juegoTerminado = false; // bandera para guardar solo una vez por partida
+    this._juegoTerminado = false;
   }
 
   _bucle() {

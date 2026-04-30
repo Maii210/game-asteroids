@@ -1,15 +1,9 @@
-// ============================================================
-//  MODELO — Modelo.js
-//  Toda la lógica y datos del juego. Sin tocar el canvas.
-// ============================================================
-
 import { Nave      } from './Nave.js';
 import { Bala      } from './Bala.js';
 import { Estrella  } from './Estrella.js';
 import { Asteroide } from './Asteroide.js';
 
 const ASTEROIDES_INICIALES = 5;
-
 export class Modelo {
   constructor(ancho, alto) {
     this.ancho = ancho;
@@ -20,7 +14,6 @@ export class Modelo {
     this.nivel       = 1;
     this.juegoActivo = true;
 
-    // La nave se crea al centro y NO se mueve
     this.nave       = new Nave(ancho / 2, alto / 2);
     this.balas      = [];
     this.asteroides = [];
@@ -52,21 +45,16 @@ export class Modelo {
   actualizar(teclasPulsadas) {
     if (!this.juegoActivo) return;
 
-    // Rotación de la nave (no avanza)
     if (teclasPulsadas["ArrowLeft"]  || teclasPulsadas["a"]) this.nave.girarIzquierda();
     if (teclasPulsadas["ArrowRight"] || teclasPulsadas["d"]) this.nave.girarDerecha();
 
-    // Balas
     this.balas = this.balas.filter(b => b.actualizar(this.ancho, this.alto));
 
-    // Asteroides
     this.asteroides.forEach(a => a.actualizar(this.ancho, this.alto));
 
-    // Colisiones
     this._colisionBalaAsteroide();
     this._colisionNaveAsteroide();
 
-    // Subir de nivel si se eliminaron todos
     if (this.asteroides.length === 0) {
       this.nivel++;
       this._generarAsteroides(ASTEROIDES_INICIALES + this.nivel * 2);
@@ -105,7 +93,6 @@ export class Modelo {
     for (const ast of this.asteroides) {
       if (this._distancia(this.nave.x, this.nave.y, ast.x, ast.y) < ast.radio + 10) {
         this.vidas--;
-        // La nave vuelve al centro (aunque ya estaba fija, se resetea por si acaso)
         this.nave.x = this.ancho / 2;
         this.nave.y = this.alto  / 2;
         if (this.vidas <= 0) this.juegoActivo = false;
@@ -113,7 +100,6 @@ export class Modelo {
       }
     }
   }
-
   redimensionar(ancho, alto) {
     this.ancho  = ancho;
     this.alto   = alto;

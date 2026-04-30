@@ -17,7 +17,6 @@ body {
   height: 100vh;
 }
 
-/* ── Panel de instrucciones ── */
 #panel-instrucciones {
   position: fixed;
   bottom: 24px;

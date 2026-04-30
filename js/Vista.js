@@ -100,7 +100,7 @@ export class Vista {
     ctx.fillText("NIVEL: " + nivel, this.ancho - 250, 35);
 
     ctx.textAlign = "center";
-    ctx.fillText("♦ ".repeat(vidas).trim(), this.ancho / 2, 35);
+    ctx.fillText("🤍 ".repeat(vidas).trim(), this.ancho / 2, 35);
   }
 
   dibujarPantallaFin(puntuacion) {
